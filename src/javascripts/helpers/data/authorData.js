@@ -10,7 +10,16 @@ const getAuthors = () => new Promise((resolve, reject) => {
 });
 // DELETE AUTHOR
 // CREATE AUTHOR
+const createAuthors = (newAuthorData) => new Promise((resolve, reject) => {
+  axios.post(`${dbUrl}/authors.json`, newAuthorData)
+    .then((response) => {
+      const firebaseKey = response.data.name;
+      axios.patch(`${dbUrl}/authors/${firebaseKey}.json`, { firebaseKey })
+        .then(() => getAuthors().then((allAuthors) => resolve(allAuthors)));
+    })
+    .catch((error) => reject(error));
+});
 // UPDATE AUTHOR
 // SEARCH AUTHORS
 
-export default getAuthors;
+export { getAuthors, createAuthors };
