@@ -1,7 +1,7 @@
 import { createBookSubmitEvent } from '../../events/formEvents';
 import selectAuthor from './selectAuthor';
 
-const addBookForm = () => {
+const addBookForm = (obj = {}) => {
   document.querySelector('#store').innerHTML = '';
   document.querySelector('#add-button').innerHTML = '';
   document.querySelector('#add-auth-button').innerHTML = '';
@@ -9,26 +9,26 @@ const addBookForm = () => {
     <form id="submit-book-form" class="mb-4">
       <div class="form-group">
         <label for="title">Book Title</label>
-        <input type="text" class="form-control" id="title" aria-describedby="bookTitle" placeholder="Enter Book Title" required>
+        <input type="text" class="form-control" id="title" aria-describedby="bookTitle" placeholder="Enter Book Title" value="${obj.title || ''}" required>
       </div>
       <div class="form-group">
         <label for="image">Image URL</label>
-        <input type="url" class="form-control" id="image" placeholder="Image URL" required>
+        <input type="url" class="form-control" id="image" placeholder="Image URL" value="${obj.image || ''}"required>
       </div>
       <div class="form-group">
         <label for="price">Price</label>
-        <input type="number" class="form-control" id="price" placeholder="Book Price" required>
+        <input type="number" class="form-control" id="price" placeholder="Book Price" value="${obj.price || ''}" required>
       </div>
       <div class="form-group" id="select-author">
       </div>
       <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="sale">
+        <input type="checkbox" class="form-check-input" id="sale" ${obj.sale ? 'checked' : ''}>
         <label class="form-check-label" for="sale">On Sale?</label>
       </div>
-      <button type="submit" id="submit-book" class="btn btn-primary">Submit Book</button>
+      <button type="submit" id="${obj.firebaseKey ? `update-book--${obj.firebaseKey}` : 'submit-book'}" class="btn btn-primary">Submit Book</button>
     </form>`;
 
-  selectAuthor();
+  selectAuthor(`${obj.author_id || ''}`);
 
   document.querySelector('#submit-book-form').addEventListener('submit', createBookSubmitEvent);
 };

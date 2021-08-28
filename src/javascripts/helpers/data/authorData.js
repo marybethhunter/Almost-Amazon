@@ -9,6 +9,13 @@ const getAuthors = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 // DELETE AUTHOR
+const deleteAuthor = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/authors/${firebaseKey}.json`)
+    .then(() => {
+      getAuthors().then(resolve);
+    })
+    .catch((error) => reject(error));
+});
 // CREATE AUTHOR
 const createAuthors = (newAuthorData) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/authors.json`, newAuthorData)
@@ -19,7 +26,33 @@ const createAuthors = (newAuthorData) => new Promise((resolve, reject) => {
     })
     .catch((error) => reject(error));
 });
+
+// GET SINGLE AUTHOR
+const getSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/authors/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch(reject);
+});
 // UPDATE AUTHOR
+const updateAuthor = (authorObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/authors/${authorObj.firebaseKey}.json`, authorObj)
+    .then(() => getAuthors().then(resolve))
+    .catch(reject);
+});
 // SEARCH AUTHORS
 
-export { getAuthors, createAuthors };
+// FILTER AUTHORS BY FAVORITE
+const favoriteAuthors = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/authors/.json?orderBy="favorite"&equalTo=true`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
+export {
+  getAuthors,
+  createAuthors,
+  favoriteAuthors,
+  deleteAuthor,
+  getSingleAuthor,
+  updateAuthor
+};

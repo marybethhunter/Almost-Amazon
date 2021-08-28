@@ -1,8 +1,8 @@
 import { showAuthors } from '../components/authors';
 import signOut from '../helpers/auth/signOut';
-import { getAuthors } from '../helpers/data/authorData';
+import { favoriteAuthors, getAuthors } from '../helpers/data/authorData';
 import { showBooks } from '../components/books';
-import { getBooks } from '../helpers/data/bookData';
+import { booksOnSale, getBooks } from '../helpers/data/bookData';
 
 // navigation events
 const navigationEvents = () => {
@@ -13,11 +13,17 @@ const navigationEvents = () => {
   // BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
     console.warn('Sale Books');
+    booksOnSale().then(showBooks);
   });
 
   // ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
     getBooks().then((books) => showBooks(books));
+  });
+
+  // FAVE AUTHORS FILTER
+  document.querySelector('#faveAuthors').addEventListener('click', () => {
+    favoriteAuthors().then(showAuthors);
   });
 
   // SEARCH

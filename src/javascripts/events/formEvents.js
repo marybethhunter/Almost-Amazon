@@ -19,7 +19,8 @@ const createAuthorSubmitEvent = () => {
   const newAuthorData = {
     first_name: document.querySelector('#firstName').value,
     last_name: document.querySelector('#lastName').value,
-    email: document.querySelector('#email').value
+    email: document.querySelector('#email').value,
+    favorite: document.querySelector('#favorite').checked
   };
 
   createAuthors(newAuthorData).then((allAuthors) => showAuthors(allAuthors));
