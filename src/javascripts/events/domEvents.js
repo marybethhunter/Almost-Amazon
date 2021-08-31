@@ -1,9 +1,18 @@
 import addBookForm from '../components/forms/addBookForm';
 import addAuthorForm from '../components/forms/addAuthorForm';
-import { deleteBook, getSingleBook, updateBook } from '../helpers/data/bookData';
+import
+{
+  deleteBook,
+  getBooksBySameAuthor,
+  getSingleBook,
+  updateBook,
+} from '../helpers/data/bookData';
 import { showBooks } from '../components/books';
 import { deleteAuthor, getSingleAuthor, updateAuthor } from '../helpers/data/authorData';
 import { showAuthors } from '../components/authors';
+import viewBook from '../components/viewBook';
+import viewAuthor from '../components/viewAuthor';
+import { viewBookDetails, viewAuthorDetails } from '../helpers/data/mergedData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -36,12 +45,18 @@ const domEvents = () => {
       const bookObject = {
         author_id: document.querySelector('#author').value,
         image: document.querySelector('#image').value,
+        description: document.querySelector('#description').value,
         price: Number(document.querySelector('#price').value),
         sale: document.querySelector('#sale').checked,
         title: document.querySelector('#title').value,
         firebaseKey: id,
       };
       updateBook(bookObject).then(showBooks);
+    }
+    // CLICK EVENT FOR VIEWING BOOK DETAILS
+    if (e.target.id.includes('view-book-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      viewBookDetails(firebaseKey).then(viewBook);
     }
 
     // ADD CLICK EVENT FOR DELETING AN AUTHOR
@@ -57,6 +72,12 @@ const domEvents = () => {
 
     if (e.target.id.includes('add-author-btn')) {
       addAuthorForm();
+    }
+    // CLICK EVENT FOR VIEWING AUTHOR DETAILS
+    if (e.target.id.includes('view-author-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      console.warn(getBooksBySameAuthor('-MTpcliA_-GtWZHpb8sf'));
+      viewAuthorDetails(firebaseKey).then(viewAuthor);
     }
     // ADD CLICK EVENT FOR SUBMITTING FORM FOR ADDING AN AUTHOR
     // this is in the addAuthorForm function already
@@ -74,6 +95,7 @@ const domEvents = () => {
         last_name: document.querySelector('#lastName').value,
         email: document.querySelector('#email').value,
         favorite: document.querySelector('#favorite').checked,
+        description: document.querySelector('#auth-description').value,
         firebaseKey: id,
       };
       updateAuthor(authorObj).then(showAuthors);

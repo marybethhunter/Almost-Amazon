@@ -1,6 +1,6 @@
 const showAuthors = (array) => {
   document.querySelector('#store').innerHTML = '';
-  document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-book-btn">Add A Book</button>';
+  document.querySelector('#add-button').innerHTML = '';
   array.forEach((item) => {
     document.querySelector('#store').innerHTML += `<div class="card" style="width: 18rem;">
     <div class="card-body">
@@ -8,8 +8,9 @@ const showAuthors = (array) => {
       <h6 class="card-subtitle mb-2 text-muted">${item.email}</h6>
       <p class="card-text bold">${item.favorite ? '<span class="badge badge-info sale-badge"><i aria-hidden="true"></i>Favorite Author</span>' : ''}</p>
       <hr>
-      <button class="btn btn-info" id="edit-author-btn--${item.firebaseKey}">Edit Author</button>
-      <button class="btn btn-danger" id="delete-author--${item.firebaseKey}">Delete Author</button>
+      <i class="btn btn-success fas fa-eye" id="view-author-btn--${item.firebaseKey}"></i>
+      <i id="edit-author-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
+      <i id="delete-author--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
     </div>
   </div>`;
   });

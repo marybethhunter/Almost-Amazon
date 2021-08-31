@@ -1,9 +1,9 @@
 import { createAuthorSubmitEvent } from '../../events/formEvents';
+import clearDom from '../../helpers/clearDom';
 
 const addAuthorForm = (obj = {}) => {
-  document.querySelector('#store').innerHTML = '';
-  document.querySelector('#add-button').innerHTML = '';
-  document.querySelector('#add-auth-button').innerHTML = '';
+  clearDom();
+
   document.querySelector('#form-container').innerHTML = `
     <form id="submit-author-form" class="mb-4">
       <div class="form-group">
@@ -14,6 +14,10 @@ const addAuthorForm = (obj = {}) => {
         <label for="last-name">Author Last Name:</label>
         <input type="text" class="form-control" id="lastName" placeholder="Enter Author Last Name" value="${obj.last_name || ''}" required>
       </div>
+      <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" placeholder="Author Description" id="auth-description" style="height: 100px">${obj.description || ''}</textarea>
+    </div>
       <div class="form-group">
         <label for="email">Author Email:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter Author Email" value="${obj.email || ''}" required>
