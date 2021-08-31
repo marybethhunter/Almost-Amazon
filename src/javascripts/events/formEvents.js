@@ -7,6 +7,7 @@ const createBookSubmitEvent = () => {
   const formData = {
     author_id: document.querySelector('#author').value,
     image: document.querySelector('#image').value,
+    description: document.querySelector('#description').value,
     price: Number(document.querySelector('#price').value),
     sale: document.querySelector('#sale').checked,
     title: document.querySelector('#title').value
@@ -20,6 +21,7 @@ const createAuthorSubmitEvent = () => {
     first_name: document.querySelector('#firstName').value,
     last_name: document.querySelector('#lastName').value,
     email: document.querySelector('#email').value,
+    description: document.querySelector('#auth-description').value,
     favorite: document.querySelector('#favorite').checked
   };
 

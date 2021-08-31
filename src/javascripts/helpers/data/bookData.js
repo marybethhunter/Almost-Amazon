@@ -46,7 +46,14 @@ const updateBook = (bookObject) => new Promise((resolve, reject) => {
 
 // FILTER BOOKS ON SALE
 const booksOnSale = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}//books/.json?orderBy="sale"&equalTo=true`)
+  axios.get(`${dbUrl}/books/.json?orderBy="sale"&equalTo=true`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch(reject);
+});
+
+// GET BOOKS BY SAME AUTHOR
+const getBooksBySameAuthor = (authorFirebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/books/.json?orderBy="author_id"&equalTo="${authorFirebaseKey}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
@@ -57,5 +64,6 @@ export {
   booksOnSale,
   deleteBook,
   getSingleBook,
-  updateBook
+  updateBook,
+  getBooksBySameAuthor
 };

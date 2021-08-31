@@ -4,6 +4,7 @@
     "first_name": "Rosmunda",
     "last_name": "Avann",
     "email": "ravann1j@smugmug.com",
+    "description": "",
     "favorite": true
   },
   "-MTpcli9kmjpvbdr-ckb": {
@@ -11,6 +12,7 @@
     "first_name": "Broderic",
     "last_name": "Dunrige",
     "email": "bdunrige1k@symantec.com",
+    "description": "",
     "favorite": true
   },
   "-MTpcliA_-GtWZHpb8sf": {
@@ -18,6 +20,7 @@
     "first_name": "Aurora",
     "last_name": "Raddish",
     "email": "araddish1l@liveinternet.ru",
+    "description": "",
     "favorite": false
   },
   "-MTpcliCeUeUNMpZ-Kog": {
@@ -25,6 +28,7 @@
     "first_name": "Darb",
     "last_name": "Dyke",
     "email": "ddyke1m@imageshack.us",
+    "description": "",
     "favorite": false
   },
   "-MTpcliDmrp15A1WIE4U": {
@@ -32,6 +36,7 @@
     "first_name": "Lorette",
     "last_name": "Clamo",
     "email": "lclamo1n@imgur.com",
+    "description": "",
     "favorite": true
   },
   "-MTpcliGnhDSsyvILIoJ": {
@@ -39,6 +44,7 @@
     "first_name": "Mickie",
     "last_name": "Schlagman",
     "email": "mschlagman1o@miitbeian.gov.cn",
+    "description": "",
     "favorite": false
   }
 }
