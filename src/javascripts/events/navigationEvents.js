@@ -14,7 +14,6 @@ const navigationEvents = () => {
 
   // BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
-    console.warn('Sale Books');
     booksOnSale().then(showBooks);
   });
 
@@ -37,7 +36,6 @@ const navigationEvents = () => {
   // SEARCH
   document.querySelector('#search').addEventListener('keyup', (e) => {
     const searchValue = document.querySelector('#search').value;
-    console.warn(searchValue);
     if (e.keyCode === 13) {
       searchBooks(searchValue).then(showBooks);
       document.querySelector('#search').value = '';
