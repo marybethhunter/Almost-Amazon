@@ -42,7 +42,13 @@ const updateBook = (bookObject) => new Promise((resolve, reject) => {
     .then(() => getBooks().then(resolve))
     .catch(reject);
 });
+
 // SEARCH BOOKS
+const searchBooks = (searchValue) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/books/.json?orderBy="title"&equalTo="${searchValue}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 
 // FILTER BOOKS ON SALE
 const booksOnSale = () => new Promise((resolve, reject) => {
@@ -58,6 +64,22 @@ const getBooksBySameAuthor = (authorFirebaseKey) => new Promise((resolve, reject
     .catch(reject);
 });
 
+// GET BOOKS BY CART STATUS
+const getBooksInCart = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/books/.json?orderBy="inCart"&equalTo=true`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch(reject);
+});
+
+// CHANGE BOOK CART STATUS
+// const changeInCartStatus = (e) => {
+//   const targetType = e.target.type;
+//   const targetId = e.target.id;
+//   if (targetType === "button") {
+
+//   }
+// };
+
 export {
   getBooks,
   createBook,
@@ -65,5 +87,7 @@ export {
   deleteBook,
   getSingleBook,
   updateBook,
-  getBooksBySameAuthor
+  getBooksBySameAuthor,
+  getBooksInCart,
+  searchBooks,
 };

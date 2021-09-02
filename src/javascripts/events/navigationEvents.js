@@ -2,7 +2,9 @@ import { showAuthors } from '../components/authors';
 import signOut from '../helpers/auth/signOut';
 import { favoriteAuthors, getAuthors } from '../helpers/data/authorData';
 import { showBooks } from '../components/books';
-import { booksOnSale, getBooks } from '../helpers/data/bookData';
+import { booksOnSale, getBooks, searchBooks } from '../helpers/data/bookData';
+import viewCart from '../components/viewCart';
+import clearDom from '../helpers/clearDom';
 
 // navigation events
 const navigationEvents = () => {
@@ -18,6 +20,7 @@ const navigationEvents = () => {
 
   // ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
+    clearDom();
     getBooks().then((books) => showBooks(books));
   });
 
@@ -26,17 +29,17 @@ const navigationEvents = () => {
     favoriteAuthors().then(showAuthors);
   });
 
+  // CART
+  document.querySelector('#cart-btn').addEventListener('click', () => {
+    viewCart();
+  });
+
   // SEARCH
   document.querySelector('#search').addEventListener('keyup', (e) => {
-    const searchValue = document.querySelector('#search').value.toLowerCase();
+    const searchValue = document.querySelector('#search').value;
     console.warn(searchValue);
-
-    // WHEN THE USER PRESSES ENTER, MAKE THE API CALL AND CLEAR THE INPUT
     if (e.keyCode === 13) {
-      // MAKE A CALL TO THE API TO FILTER ON THE BOOKS
-      // IF THE SEARCH DOESN'T RETURN ANYTHING, SHOW THE EMPTY STORE
-      // OTHERWISE SHOW THE STORE
-
+      searchBooks(searchValue).then(showBooks);
       document.querySelector('#search').value = '';
     }
   });

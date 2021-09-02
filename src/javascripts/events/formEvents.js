@@ -10,7 +10,7 @@ const createBookSubmitEvent = () => {
     description: document.querySelector('#description').value,
     price: Number(document.querySelector('#price').value),
     sale: document.querySelector('#sale').checked,
-    title: document.querySelector('#title').value
+    title: document.querySelector('#title').value,
   };
 
   createBook(formData).then((allBooks) => showBooks(allBooks));

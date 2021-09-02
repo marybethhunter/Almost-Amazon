@@ -8,7 +8,9 @@ const viewAuthor = (obj) => {
     <h6 class="card-subtitle mb-2 text-muted">${obj.description || ''}</h6>
     <h6 class="card-subtitle mb-2 text-muted">Email: ${obj.email}</h6>
     <p class="card-text bold">${obj.favorite ? '<span class="badge badge-info sale-badge"><i aria-hidden="true"></i>Favorite Author</span>' : ''}</p>
-    <div id="specificBooks"></div>
+    <div id="specificBooks">
+    <h6>Books:</h6>
+    </div>
     <hr>
     <button class="btn btn-info" id="edit-author-btn--${obj.firebaseKey}">Edit Author</button>
     <button class="btn btn-danger" id="delete-author--${obj.firebaseKey}">Delete Author</button>

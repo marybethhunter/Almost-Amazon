@@ -4,15 +4,19 @@ import
 {
   deleteBook,
   getBooksBySameAuthor,
+  getBooksInCart,
   getSingleBook,
   updateBook,
 } from '../helpers/data/bookData';
 import { showBooks } from '../components/books';
-import { deleteAuthor, getSingleAuthor, updateAuthor } from '../helpers/data/authorData';
+import { getSingleAuthor, updateAuthor } from '../helpers/data/authorData';
 import { showAuthors } from '../components/authors';
 import viewBook from '../components/viewBook';
 import viewAuthor from '../components/viewAuthor';
-import { viewBookDetails, viewAuthorDetails } from '../helpers/data/mergedData';
+// eslint-disable-next-line import/named
+import { viewBookDetails, viewAuthorDetails, deleteAuthorBooks } from '../helpers/data/mergedData';
+import viewCart from '../components/viewCart';
+// import clearDom from '../helpers/clearDom';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -59,13 +63,19 @@ const domEvents = () => {
       viewBookDetails(firebaseKey).then(viewBook);
     }
 
+    // CLICK EVENT FOR ADDING BOOK TO CART
+    if (e.target.id.includes('add-to-cart-btn')) {
+      const [, id] = e.target.id.split('--');
+      getBooksInCart(id).then((book) => viewCart(book));
+    }
+
     // ADD CLICK EVENT FOR DELETING AN AUTHOR
     if (e.target.id.includes('delete-author')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
         console.warn('CLICKED DELETE AUTHOR', e.target.id);
         const [, id] = e.target.id.split('--');
-        deleteAuthor(id).then(showAuthors);
+        deleteAuthorBooks(id).then(showAuthors);
       }
     }
     // ADD CLICK EVENT FOR SHOWING FORM FOR ADDING AN AUTHOR

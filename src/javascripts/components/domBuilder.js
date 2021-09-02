@@ -6,6 +6,7 @@ const domBuilder = () => {
     <div id="form-container"></div>
     <div id="store"></div>
     <div id="view"></div>
+    <div id="cart"></div>
   </div>`;
 };
 
