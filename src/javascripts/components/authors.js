@@ -1,6 +1,9 @@
+import clearDom from '../helpers/clearDom';
+
 const showAuthors = (array) => {
+  clearDom();
   document.querySelector('#store').innerHTML = '';
-  document.querySelector('#add-button').innerHTML = '';
+  document.querySelector('#add-auth-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-author-btn">Add Author</button>';
   array.forEach((item) => {
     document.querySelector('#store').innerHTML += `<div class="card" style="width: 18rem;">
     <div class="card-body">

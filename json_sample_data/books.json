@@ -7,7 +7,8 @@
     "description": "Achilles, 'the best of all the Greeks,' son of the cruel sea goddess Thetis and the legendary king Peleus, is strong, swift, and beautiful— irresistible to all who meet him. Patroclus is an awkward young prince, exiled from his homeland after an act of shocking violence. Brought together by chance, they forge an inseparable bond, despite risking the gods' wrath. They are trained by the centaur Chiron in the arts of war and medicine, but when word comes that Helen of Sparta has been kidnapped, all the heroes of Greece are called upon to lay siege to Troy in her name. Seduced by the promise of a glorious destiny, Achilles joins their cause, and torn between love and fear for his friend, Patroclus follows. Little do they know that the cruel Fates will test them both as never before and demand a terrible sacrifice.",
     "sale": true,
     "inCart": false,
-    "author_id": "-MTpcli73mfiIqW0lpPe"
+    "author_id": "-MTpcli73mfiIqW0lpPe",
+    "uid": "R4SdI1xTQZesXDw7P1aQx0UXEzE2"
   },
   "-MTpclg-BDWqEqyNcYzx": {
     "firebaseKey": "-MTpclg-BDWqEqyNcYzx",
@@ -17,7 +18,8 @@
     "description": "A Little Life follows four college classmates—broke, adrift, and buoyed only by their friendship and ambition—as they move to New York in search of fame and fortune. While their relationships, which are tinged by addiction, success, and pride, deepen over the decades, the men are held together by their devotion to the brilliant, enigmatic Jude, a man scarred by an unspeakable childhood trauma. A hymn to brotherly bonds and a masterful depiction of love in the twenty-first century, Hanya Yanagihara’s stunning novel is about the families we are born into, and those that we make for ourselves.",
     "sale": false,
     "inCart": false,
-    "author_id": "-MTpcli9kmjpvbdr-ckb"
+    "author_id": "-MTpcli9kmjpvbdr-ckb",
+    "uid": "R4SdI1xTQZesXDw7P1aQx0UXEzE2"
   },
   "-MTpclg1yedrHyxkTEvt": {
     "firebaseKey": "-MTpclg1yedrHyxkTEvt",
@@ -27,7 +29,8 @@
     "description": "",
     "sale": false,
     "inCart": false,
-    "author_id": "-MTpcliA_-GtWZHpb8sf"
+    "author_id": "-MTpcliA_-GtWZHpb8sf",
+    "uid": ""
   },
   "-MTpclg3RLFK-14Pu-YM": {
     "firebaseKey": "-MTpclg3RLFK-14Pu-YM",
@@ -37,7 +40,8 @@
     "description": "In the house of Helios, god of the sun and mightiest of the Titans, a daughter is born. But Circe is a strange child -- not powerful, like her father, nor viciously alluring like her mother. Turning to the world of mortals for companionship, she discovers that she does possess power -- the power of witchcraft, which can transform rivals into monsters and menace the gods themselves. Threatened, Zeus banishes her to a deserted island, where she hones her occult craft, tames wild beasts and crosses paths with many of the most famous figures in all of mythology, including the Minotaur, Daedalus and his doomed son Icarus, the murderous Medea, and, of course, wily Odysseus.",
     "sale": true,
     "inCart": false,
-    "author_id": "-MTpcli73mfiIqW0lpPe"
+    "author_id": "-MTpcli73mfiIqW0lpPe",
+    "uid": ""
   },
   "-MTpclg6Ax7Lg5iq3tOs": {
     "firebaseKey": "-MTpclg6Ax7Lg5iq3tOs",
@@ -47,7 +51,8 @@
     "description": "Jack Torrance’s new job at the Overlook Hotel is the perfect chance for a fresh start. As the off-season caretaker at the atmospheric old hotel, he’ll have plenty of time to spend reconnecting with his family and working on his writing. But as the harsh winter weather sets in, the idyllic location feels ever more remote . . . and more sinister. And the only one to notice the strange and terrible forces gathering around the Overlook is Danny Torrance, a uniquely gifted five-year-old.",
     "sale": true,
     "inCart": false,
-    "author_id": "-MTpcliCeUeUNMpZ-Kog"
+    "author_id": "-MTpcliCeUeUNMpZ-Kog",
+    "uid": "R4SdI1xTQZesXDw7P1aQx0UXEzE2"
   },
   "-MTpclg4KKMZ4FUaEE2b": {
     "firebaseKey": "-MTpclg4KKMZ4FUaEE2b",
@@ -57,6 +62,7 @@
     "description": "On November 22, 1963, three shots rang out in Dallas, President Kennedy died, and the world changed. What if you could change it back? Stephen King’s heart-stoppingly dramatic new novel is about a man who travels back in time to prevent the JFK assassination—a thousand page tour de force. Following his massively successful novel Under the Dome, King sweeps readers back in time to another moment—a real life moment—when everything went wrong: the JFK assassination. And he introduces readers to a character who has the power to change the course of history.",
     "sale": false,
     "inCart": false,
-    "author_id": "-MTpcliCeUeUNMpZ-Kog"
+    "author_id": "-MTpcliCeUeUNMpZ-Kog",
+    "uid": "R4SdI1xTQZesXDw7P1aQx0UXEzE2"
   }
 }

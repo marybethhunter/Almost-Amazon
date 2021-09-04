@@ -1,4 +1,3 @@
-import { createAuthorSubmitEvent } from '../../events/formEvents';
 import clearDom from '../../helpers/clearDom';
 
 const addAuthorForm = (obj = {}) => {
@@ -28,8 +27,6 @@ const addAuthorForm = (obj = {}) => {
       </div>
       <button type="submit" id="${obj.firebaseKey ? `update-author--${obj.firebaseKey}` : 'submit-author'}" class="btn btn-primary">Submit Author</button>
     </form>`;
-
-  document.querySelector('#submit-author-form').addEventListener('submit', createAuthorSubmitEvent);
 };
 
 export default addAuthorForm;

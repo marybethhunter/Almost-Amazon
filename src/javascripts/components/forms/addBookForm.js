@@ -1,8 +1,7 @@
-import { createBookSubmitEvent } from '../../events/formEvents';
 import selectAuthor from './selectAuthor';
 import clearDom from '../../helpers/clearDom';
 
-const addBookForm = (obj = {}) => {
+const addBookForm = (userId, obj = {}) => {
   clearDom();
 
   document.querySelector('#form-container').innerHTML = `
@@ -33,9 +32,7 @@ const addBookForm = (obj = {}) => {
       <button type="submit" id="${obj.firebaseKey ? `update-book--${obj.firebaseKey}` : 'submit-book'}" class="btn btn-primary">Submit Book</button>
     </form>`;
 
-  selectAuthor(`${obj.author_id || ''}`);
-
-  document.querySelector('#submit-book-form').addEventListener('submit', createBookSubmitEvent);
+  selectAuthor(userId, `${obj.author_id || ''}`);
 };
 
 export default addBookForm;

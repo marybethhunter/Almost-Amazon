@@ -4,8 +4,6 @@ const showBooks = (array) => {
   clearDom();
 
   document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-book-btn">Add A Book</button>';
-  document.querySelector('#add-auth-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-author-btn">Add Author</button>';
-
   array.forEach((item) => {
     document.querySelector('#store').innerHTML += `<div class="card">
         <img class="card-img-top" src=${item.image} alt=${item.title} style="height: 400px;">
