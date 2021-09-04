@@ -4,8 +4,6 @@ const showBooks = (array) => {
   clearDom();
 
   document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-book-btn">Add A Book</button>';
-  document.querySelector('#add-auth-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-author-btn">Add Author</button>';
-
   array.forEach((item) => {
     document.querySelector('#store').innerHTML += `<div class="card">
         <img class="card-img-top" src=${item.image} alt=${item.title} style="height: 400px;">
@@ -16,6 +14,8 @@ const showBooks = (array) => {
         <i class="btn btn-success fas fa-eye" id="view-book-btn--${item.firebaseKey}"></i>
         <i id="edit-book-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
         <i id="delete-book--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
+        <button id="add-to-cart-btn" class="btn btn-secondary">Add to Cart</button>
+      </div>
         </div>
       </div>`;
   });

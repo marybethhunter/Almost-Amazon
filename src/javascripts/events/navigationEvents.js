@@ -2,41 +2,44 @@ import { showAuthors } from '../components/authors';
 import signOut from '../helpers/auth/signOut';
 import { favoriteAuthors, getAuthors } from '../helpers/data/authorData';
 import { showBooks } from '../components/books';
-import { booksOnSale, getBooks } from '../helpers/data/bookData';
+import { booksOnSale, getBooks, searchBooks } from '../helpers/data/bookData';
+import viewCart from '../components/viewCart';
+import clearDom from '../helpers/clearDom';
 
 // navigation events
-const navigationEvents = () => {
+const navigationEvents = (uid) => {
   // LOGOUT BUTTON
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);
 
   // BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
-    console.warn('Sale Books');
-    booksOnSale().then(showBooks);
+    clearDom();
+    booksOnSale(uid).then(showBooks);
   });
 
   // ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
-    getBooks().then((books) => showBooks(books));
+    clearDom();
+    getBooks(uid).then((books) => showBooks(books));
   });
 
   // FAVE AUTHORS FILTER
   document.querySelector('#faveAuthors').addEventListener('click', () => {
-    favoriteAuthors().then(showAuthors);
+    clearDom();
+    favoriteAuthors(uid).then(showAuthors);
+  });
+
+  // CART
+  document.querySelector('#cart-btn').addEventListener('click', () => {
+    viewCart();
   });
 
   // SEARCH
   document.querySelector('#search').addEventListener('keyup', (e) => {
-    const searchValue = document.querySelector('#search').value.toLowerCase();
-    console.warn(searchValue);
-
-    // WHEN THE USER PRESSES ENTER, MAKE THE API CALL AND CLEAR THE INPUT
+    const searchValue = document.querySelector('#search').value;
     if (e.keyCode === 13) {
-      // MAKE A CALL TO THE API TO FILTER ON THE BOOKS
-      // IF THE SEARCH DOESN'T RETURN ANYTHING, SHOW THE EMPTY STORE
-      // OTHERWISE SHOW THE STORE
-
+      searchBooks(searchValue).then(showBooks);
       document.querySelector('#search').value = '';
     }
   });
@@ -45,7 +48,7 @@ const navigationEvents = () => {
   // 1. When a user clicks the authors link, make a call to firebase to get all authors
 
   document.querySelector('#authors').addEventListener('click', () => {
-    getAuthors().then((authors) => showAuthors(authors));
+    getAuthors(uid).then((authors) => showAuthors(authors));
   });
   // 2. Convert the response to an array because that is what the makeAuthors function is expecting
   // 3. If the array is empty because there are no authors, make sure to use the emptyAuthor function
